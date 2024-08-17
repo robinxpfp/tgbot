@@ -1,4 +1,7 @@
+import dotenv from "dotenv";
 import { Bot, webhookCallback } from "grammy";
+
+dotenv.config();
 
 const token = process.env.BOT_TOKEN;
 if (!token) throw new Error("Falta BOT_TOKEN.");
@@ -14,5 +17,4 @@ bot.command("id", (ctx) => {
   ctx.reply(`Your id is ${userId}.`);
 });
 
-// Exporta el callback para el webhook
 export default webhookCallback(bot, "std/http");
